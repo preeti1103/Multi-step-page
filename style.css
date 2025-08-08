@@ -1,0 +1,479 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-color: hsl(217, 100%, 97%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    width: 900px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-size: contain;
+    background-position: center;
+    color: rgb(0, 2, 91);
+    border-radius: 10px;
+    padding: 35px 25px;
+    width: 270px;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+}
+
+.sidebar-pic {
+    position: absolute;
+    bottom: 20px;
+    width: 140%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: rgb(22, 2, 100);
+    text-transform: uppercase;
+}
+
+.step-number {
+    width: 35px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.step.active .step-number {
+    background-color: hsl(206, 94%, 87%);
+    color: hsl(213, 96%, 18%);
+    border-color: hsl(206, 94%, 87%);
+}
+
+.step-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: hsl(0, 0%, 0%);
+}
+
+.step-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Form container styles */
+.form-container {
+    flex: 1;
+    padding: 40px 80px;
+    position: relative;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-step h2 {
+    color: hsl(213, 96%, 18%);
+    margin-bottom: 10px;
+}
+
+.form-step p {
+    color: hsl(231, 11%, 63%);
+    margin-bottom: 30px;
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: hsl(213, 96%, 18%);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid hsl(229, 24%, 87%);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: hsl(213, 96%, 18%);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: hsl(243, 100%, 62%);
+}
+
+.form-group input::placeholder {
+    color: hsl(231, 11%, 63%);
+    font-weight: 500;
+}
+
+.error-message {
+    color: hsl(354, 84%, 57%);
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Plan options styles */
+.plan-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.plan-option {
+    flex: 1;
+}
+
+.plan-option input {
+    display: none;
+}
+
+.plan-option label {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid hsl(229, 24%, 87%);
+    border-radius: 8px;
+    cursor: pointer;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.plan-option input:checked+label {
+    border-color: hsl(243, 100%, 62%);
+    background-color: hsl(217, 100%, 97%);
+    border: 2px solid hsl(243, 100%, 62%);
+    box-shadow: 0 5px 15px rgba(72, 62, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.plan-option label:hover {
+    border-color: hsl(243, 100%, 62%);
+}
+
+.plan-option img {
+    width: 40px;
+    margin-bottom: 40px;
+}
+
+.plan-details h3 {
+    color: hsl(213, 96%, 18%);
+    margin-bottom: 5px;
+}
+
+.plan-details .price {
+    color: hsl(231, 11%, 63%);
+    font-size: 14px;
+}
+
+/* Billing toggle styles */
+.billing-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: hsl(217, 100%, 97%);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.billing-toggle span {
+    font-weight: 500;
+    color: hsl(231, 11%, 63%);
+}
+
+.billing-toggle span.active {
+    color: hsl(213, 96%, 18%);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(213, 96%, 18%);
+    transition: .4s;
+    background-color: hsl(213, 96%, 18%);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: hsl(243, 100%, 62%);
+}
+
+.slider:before {
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Addon options styles */
+.addon-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.addon-option input {
+    display: none;
+}
+
+.addon-option label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid hsl(229, 24%, 87%);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.addon-option input:checked+label {
+    border-color: hsl(243, 100%, 62%);
+    background-color: hsl(217, 100%, 97%);
+}
+
+.addon-details h3 {
+    color: hsl(213, 96%, 18%);
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.addon-details p {
+    color: hsl(231, 11%, 63%);
+    font-size: 13px;
+    margin: 0;
+}
+
+.addon-price {
+    color: hsl(243, 100%, 62%);
+    font-size: 14px;
+}
+
+/* Summary styles */
+.summary {
+    background-color: hsl(217, 100%, 97%);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.summary-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.plan-selected {
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-selected h3 {
+    color: hsl(213, 96%, 18%);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.btn-change {
+    background: none;
+    border: none;
+    color: hsl(231, 11%, 63%);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.plan-price {
+    color: hsl(213, 96%, 18%);
+    font-weight: 700;
+}
+
+.summary-addons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.addon-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addon-item .addon-name {
+    color: hsl(231, 11%, 63%);
+    font-size: 14px;
+}
+
+.addon-item .addon-price {
+    color: hsl(213, 96%, 18%);
+    font-size: 14px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid hsl(229, 24%, 87%);
+    margin: 15px 0;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.total p {
+    color: hsl(231, 11%, 63%);
+    margin: 0;
+}
+
+.total h3 {
+    color: hsl(243, 100%, 62%);
+    font-size: 18px;
+}
+
+/* Thank you styles */
+.thank-you {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.thank-you img {
+    width: 100px;
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.thank-you h2 {
+    margin-bottom: 15px;
+}
+
+.thank-you p {
+    line-height: 1.5;
+}
+
+/* Button styles */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.back-btn {
+    background: none;
+    color: hsl(231, 11%, 63%);
+}
+
+.next-btn,
+.confirm-btn {
+    background-color: hsl(213, 96%, 18%);
+    color: white;
+}
+
+.next-btn:hover,
+.confirm-btn:hover {
+    background-color: hsl(213, 96%, 22%);
+}
+
+.confirm-btn {
+    background-color: hsl(243, 100%, 62%);
+}
+
+.confirm-btn:hover {
+    background-color: hsl(243, 100%, 70%);
+}
